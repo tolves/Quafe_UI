@@ -100,20 +100,20 @@ local function PlayerCastBar_Artwork(frame)
 	LeftBD: SetTexture(MEKA.Path("RingBar\\Castbar1_Bd1"))
 	LeftBD: SetVertexColor(F.Color(C.Color.Warn1))
 	LeftBD: SetAlpha(0.9)
-	LeftBD: SetSize(32,32)
-	LeftBD: SetPoint("CENTER", frame, "CENTER", 175*cos(rad(-122)), 175*sin(rad(-122)))
+	LeftBD: SetSize(16,32)
+	LeftBD: SetPoint("CENTER", frame, "CENTER", 175*cos(rad(-120)), 175*sin(rad(-123)))
 	F.RotateTexture(LeftBD, -32)
 
 	local RightBD = frame:CreateTexture(nil, "ARTWORK")
 	RightBD: SetTexture(MEKA.Path("RingBar\\Castbar1_Bd1"))
 	RightBD: SetVertexColor(F.Color(C.Color.Warn1))
 	RightBD: SetAlpha(0.9)
-	RightBD: SetSize(32,32)
-	RightBD: SetPoint("CENTER", frame, "CENTER", 175*cos(rad(-58)), 175*sin(rad(-58)))
+	RightBD: SetSize(16,32)
+	RightBD: SetPoint("CENTER", frame, "CENTER", 175*cos(rad(-60)), 175*sin(rad(-57)))
 	F.RotateTexture(RightBD, 32)
 
 	local Text = F.Create.Font(frame, "ARTWORK", C.Font.Txt, 14, nil, C.Color.Warn1,1, C.Color.Main0,1, {1,-1}, "CENTER", "CENTER")
-	Text: SetPoint("CENTER", frame, "CENTER", 0,-210)
+	Text: SetPoint("CENTER", frame, "CENTER", 0,-810)
 	Text: SetSize(100,8)
 
 	local Num = {}
@@ -262,8 +262,9 @@ end
 local function PlayerCastBar_Create(frame)
 	local PlayerCastBar = CreateFrame("frame", "MEKA_PlayerCastBar", frame)
 	PlayerCastBar: SetSize(16, 16)
-	PlayerCastBar: SetPoint("CENTER", UIParent, "CENTER", 0,0)
-	PlayerCastBar.RingSize = 512
+	PlayerCastBar: SetPoint("CENTER", UIParent, "CENTER", 0,50)
+	PlayerCastBar.RingSize = 500
+	PlayerCastBar: SetScale(2.5)
 
 	Create_Ring(PlayerCastBar, PlayerCastBar.RingSize, "RingBar\\Castbar1")
 	PlayerCastBar_Artwork(PlayerCastBar)
