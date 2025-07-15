@@ -40,12 +40,12 @@ local framesToDisable = {
 	MicroButtonAndBagsBar, MainMenuBarArtFrame, StatusTrackingBarManager,
 	ActionBarDownButton, ActionBarUpButton, MainMenuBarVehicleLeaveButton,
 	OverrideActionBar,
-	OverrideActionBarExpBar, OverrideActionBarHealthBar, OverrideActionBarPowerBar, OverrideActionBarPitchFrame,
+	OverrideActionBarExpBar, OverrideActionBarHealthBar, OverrideActionBarPowerBar, OverrideActionBarPitchFrame
 }
 
 local framesToHide = {
 	MainMenuBar,
-	OverrideActionBar,
+	OverrideActionBar
 }
 	
 local function DisableAllScripts(frame, ignore)

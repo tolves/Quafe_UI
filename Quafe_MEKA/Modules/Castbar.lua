@@ -258,6 +258,7 @@ local function PlayerCastBar_ApplyColor(frame, state, notInterruptible)
 	end
 end
 
+-- MEKA弧形施法条
 local function PlayerCastBar_Create(frame)
 	local PlayerCastBar = CreateFrame("frame", "MEKA_PlayerCastBar", frame)
 	PlayerCastBar: SetSize(16, 16)
@@ -282,7 +283,7 @@ end
 local function PlayerCastBar_Load(frame)
 	if not frame.PlayerCastBar then
 		PlayerCastBar_Create(frame)
-		F.HideFrame(CastingBarFrame, true, true)
+		F.HideFrame(PlayerCastingBarFrame, true, true)
 	end
 	if Quafe_DB.Profile[Quafe_DBP.Profile].MEKA_CastBar.PlayerSpellName then
 		frame.PlayerCastBar.Text: Show()
