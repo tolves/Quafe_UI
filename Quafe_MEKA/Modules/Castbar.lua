@@ -264,7 +264,7 @@ local function PlayerCastBar_Create(frame)
 	PlayerCastBar: SetSize(16, 16)
 	PlayerCastBar: SetPoint("CENTER", UIParent, "CENTER", 0,50)
 	PlayerCastBar.RingSize = 500
-	PlayerCastBar: SetScale(2.5)
+	PlayerCastBar: SetScale(2)
 
 	Create_Ring(PlayerCastBar, PlayerCastBar.RingSize, "RingBar\\Castbar1")
 	PlayerCastBar_Artwork(PlayerCastBar)

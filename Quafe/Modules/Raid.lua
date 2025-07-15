@@ -356,21 +356,26 @@ end
 
 local function Raid5_ClassColor_Update(self, unit)
 	local eColor = {}
-	if ( not UnitIsConnected(unit) ) then
-		eColor = {r = 0.5, g = 0.5, b = 0.5}
-	elseif UnitIsPlayer(unit) then
-		local eClass = select(2, UnitClass(unit))
-		eColor = C.Color.Class[eClass] or C.Color.White
-	else
-		local red, green, blue, alpha = UnitSelectionColor(unit)
-		eColor.r = red or 1
-		eColor.g = green or 1
-		eColor.b = blue or 1
-		if eColor.r == 0 and eColor.g == 0 then
-			eColor.r = 56/255
-			eColor.g = 154/255
-		end
-	end
+	local eClass = select(2, UnitClass(unit))
+	eColor = C.Color.Class[eClass] or C.Color.White
+	-- if ( not UnitIsConnected(unit) ) then
+	-- 	eColor = {r = 0.5, g = 0.5, b = 0.5}
+	-- 	print(eColor)
+	-- elseif UnitIsPlayer(unit) then
+	-- 	local eClass = select(2, UnitClass(unit))
+	-- 	eColor = C.Color.Class[eClass] or C.Color.White
+	-- 	print(UnitIsPlayer(unit))
+	-- 	print(eClass)
+	-- else
+	-- 	local red, green, blue, alpha = UnitSelectionColor(unit)
+	-- 	eColor.r = red or 1
+	-- 	eColor.g = green or 1
+	-- 	eColor.b = blue or 1
+	-- 	if eColor.r == 0 and eColor.g == 0 then
+	-- 		eColor.r = 56/255
+	-- 		eColor.g = 154/255
+	-- 	end
+	-- end
 	--self.Bar1: SetStatusBarColor(F.Color(eColor))
 	--self.Bar1: SetBackdropColor(F.Color(eColor, 0.6))
 
@@ -535,10 +540,10 @@ local function Raid5Button_Template(frame, unit, name)
 	local Name = F.Create.Font(Help, "BORDER", C.Font.Txt, 12, nil, C.Color.W3,1, C.Color.Main0,1, {1,-1}, "CENTER", "CENTER")
 	Name: SetSize(100,10)
 	--Name: SetPoint("CENTER", button, "CENTER", 0, 13)
-	Name: SetPoint("CENTER", button, "CENTER", 0,0)
+	Name: SetPoint("CENTER", button, "CENTER", 0,10)
 
 	local NameBg = F.Create.Texture(Help, "BACKGROUND", 1, F.Path("StatusBar\\Raid"), C.Color.Main0, 0.3, {100,20})
-	NameBg: SetPoint("CENTER", button, "CENTER")
+	NameBg: SetPoint("CENTER", button, "CENTER",0.,10)
 
 	local Text = F.Create.Font(Help, "BORDER", C.Font.Num, 14, nil, C.Color.W3,1, C.Color.Main0,1, {1,-1}, "CENTER", "CENTER")
 	Text: SetPoint("CENTER", button, "CENTER", 0, -13)
@@ -550,10 +555,10 @@ local function Raid5Button_Template(frame, unit, name)
 	ReadyCheckIndicator: SetPoint("CENTER", button, "CENTER", 0,0)
 
 	local RaidTargetIndicator = F.Create.Texture(Help, "ARTWORK", 1, "Interface\\TargetingFrame\\UI-RaidTargetingIcons", nil, 0.9, {16,16})
-	RaidTargetIndicator: SetPoint("BOTTOM", button, "CENTER", 0,6)
+	RaidTargetIndicator: SetPoint("BOTTOM", button, "CENTER", 40,3)
 
 	local GroupLeaderIndicator = F.Create.Texture(Help, "ARTWORK", 1, "", nil, 0.9, {16,16})
-	GroupLeaderIndicator: SetPoint("TOPLEFT", GroupRoleIndicator, "TOPRIGHT", 2,1)
+	GroupLeaderIndicator: SetPoint("TOPLEFT", GroupRoleIndicator, "TOPRIGHT", -17,-5)
 
 	local CenterStatusIcon = F.Create.Texture(Help, "ARTWORK", 1, "", nil, 0.9, {32,32})
 	CenterStatusIcon: SetPoint("CENTER", button, "CENTER", 0,0)
