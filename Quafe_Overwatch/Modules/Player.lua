@@ -77,8 +77,8 @@ local function HpBar_Template(frame)
     local HpBar = CreateFrame("Frame", nil, frame)
     HpBar: SetSize(228,44)
     HpBar: SetPoint("BOTTOMLEFT")
-
-    local Bar = F.Create.Texture(HpBar, "ARTWORK", 1, OW.Path("Bar1_1"), C.Color.Main1, 0.9, {256,64})
+    local eclass = select(2, UnitClass("player"))
+    local Bar = F.Create.Texture(HpBar, "ARTWORK", 1, OW.Path("Bar1_1"), C.Color.Class[eclass], 0.9, {256,64})
     Bar: SetPoint("CENTER")
 
     local BarGlow = F.Create.Texture(HpBar, "ARTWORK", 2, OW.Path("Bar1_1Glow"), C.Color.Main1, 0.4, {256,64})
