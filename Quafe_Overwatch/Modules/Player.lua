@@ -12,6 +12,7 @@ local format = string.format
 local floor = math.floor
 local tan = math.tan
 local rad = math.rad
+local playerClass = select(2, UnitClass("player"))
 
 ----------------------------------------------------------------
 --> Left
@@ -77,8 +78,7 @@ local function HpBar_Template(frame)
     local HpBar = CreateFrame("Frame", nil, frame)
     HpBar: SetSize(228,44)
     HpBar: SetPoint("BOTTOMLEFT")
-    local eclass = select(2, UnitClass("player"))
-    local Bar = F.Create.Texture(HpBar, "ARTWORK", 1, OW.Path("Bar1_1"), C.Color.Class[eclass], 0.9, {256,64})
+    local Bar = F.Create.Texture(HpBar, "ARTWORK", 1, OW.Path("Bar1_1"), C.Color.Class[playerClass], 0.9, {256,64})
     Bar: SetPoint("CENTER")
 
     local BarGlow = F.Create.Texture(HpBar, "ARTWORK", 2, OW.Path("Bar1_1Glow"), C.Color.Main1, 0.4, {256,64})
@@ -334,7 +334,7 @@ local function LeftNum_Template(frame)
     for i = 1,5 do
         Num40[i] = Nums: CreateTexture(nil, "ARTWORK")
         Num40[i]: SetTexture(OW.Path("Num1_1"))
-        Num40[i]: SetVertexColor(F.Color(C.Color.Main1))
+        Num40[i]: SetVertexColor(F.Color(C.Color.Class[playerClass]))
         Num40[i]: SetSize(NUM_40[0][1],32)
         Num40[i]: SetTexCoord(NUM_40[0][2],NUM_40[0][3], 2/256,66/256)
         if i == 1 then
@@ -359,7 +359,7 @@ local function LeftNum_Template(frame)
     for i = 1,6 do
         Num20[i] = Nums: CreateTexture(nil, "ARTWORK")
         Num20[i]: SetTexture(OW.Path("Num1_1"))
-        Num20[i]: SetVertexColor(F.Color(C.Color.Main1))
+        Num20[i]: SetVertexColor(F.Color(C.Color.Class[playerClass]))
         Num20[i]: SetSize(NUM_20[0][1],19)
         Num20[i]: SetTexCoord(NUM_20[0][2],NUM_20[0][3], 138/256,176/256)
         if i == 1 then
