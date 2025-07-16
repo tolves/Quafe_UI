@@ -166,7 +166,7 @@ local function Quafe_Login()
 	--SetCVar("breakUpLargeNumbers", 1) 
 	--SetCVar("autoQuestProgress", 1)
 	if GetLocale() == "zhCN" then
-		SetCVar("overrideArchive", 0) --反和谐(1)[0,1]
+		SetCVar("overrideArchive", 1) --反和谐(1)[0,1]
 		SetCVar("profanityFilter", 0) --语言过滤器(1)[0,1]
 		if not F.IsClassic then
 			SetCVar("showQuestTrackingTooltips", 1) --鼠标提示中显示任务追踪(1)[0,1]
@@ -177,6 +177,11 @@ local function Quafe_Login()
 		--/console flightAngleLookAhead 飞行时视角锁定向前(0)[0,1]
 		--/console weatherDensity 2 --天气效果(2)[0,1,2,3]
 		--/console RAIDweatherDensity 2 --副本天气效果(2)[0,1,2,3]
+	end
+	
+	--> tooltips鼠标跟随
+	GameTooltip_SetDefaultAnchor = function(tooltip, parent)
+    	tooltip:SetOwner(parent, "ANCHOR_CURSOR")
 	end
 end
 
